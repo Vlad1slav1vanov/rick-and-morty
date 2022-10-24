@@ -1,0 +1,14 @@
+.main-wrapper {
+  margin: 15px auto;
+  width: calc(100vw - 100px);
+  height: 100%;
+  background-color: $white;
+  max-width: 1400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-logotype {
+  margin-bottom: 50px;
+}
