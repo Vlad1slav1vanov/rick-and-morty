@@ -1,37 +1,18 @@
-import axios from 'axios';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useEffect } from 'react';
 import MainHeader from '../components/UI/MainHeader';
+import {observer} from 'mobx-react-lite';
+import characters from '../store/characters';
 import CharactersList from '../components/CharactersList';
 import { useInView } from 'react-intersection-observer';
-import { ICharacterCard } from '../types/types';
+
 
 const HomePage: FC = () => {
-  // состояние карточек персонажей
-  const [characters, setCharacters] = useState<ICharacterCard[]>([]);
-  // отслеживание последнего элемента
-  const  { ref , inView }  =  useInView();
-  // состояние загруженных страниц с персонажами
-  const [page, setPage] = useState<number>(1);
-
+  const { ref, inView } = useInView();
   useEffect(() => {
     if (inView) {
-      getCharacters()
+      characters.getCharacters()
     }
   }, [inView])
-
-    // функция подгрузки персонажей и изменения номера страницы
-
-  async function getCharacters() {
-    try {
-      const response = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`);
-      setCharacters([...characters, ...response.data.results]);
-      setPage(prev => prev + 1)
-    }
-    catch (err) {
-      alert(err)
-    }
-  }
-
   return (
     <>
     <MainHeader />
@@ -42,8 +23,8 @@ const HomePage: FC = () => {
           <source media='(min-width: 768px)' srcSet='./images/main-title-desktop.png' width='600' height='200'/>
           <img className='main-logotype' src='./images/main-title.png' alt='' width='312' height='104'/>
         </picture>
-        <CharactersList characters={characters}/>
-        <div ref={ref} style={{opacity: 0, height: '20px', width: '100%'}}>{inView}</div>
+        <CharactersList />
+        <div ref={ref}>{inView}</div>
       </section>
       
     </main>
@@ -54,4 +35,4 @@ const HomePage: FC = () => {
   )
 }
 
-export default HomePage;
+export default observer(HomePage);

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const MainHeader = () => {
   const [menuState, setMenuState] = useState(false);
@@ -7,9 +8,9 @@ const MainHeader = () => {
     <header className='main-header'>
       <img src='./images/header-logo.png' width='50' height='50' alt=''/>
       <nav className={`main-header__main-navigation ${menuState ? 'open' : ''}`}>
-        <button>Characters</button>
-        <button>Locations</button>
-        <button>Episodes</button>
+        <Link className='main-header__link' to='/characters'>Characters</Link>
+        <Link className='main-header__link' to='/locations'>Locations</Link>
+        <Link className='main-header__link' to='/episodes'>Episodes</Link>
       </nav>
       <div className={`${menuState ? 'open' : ''}`} 
            onClick={() => setMenuState(prev => !prev)} 

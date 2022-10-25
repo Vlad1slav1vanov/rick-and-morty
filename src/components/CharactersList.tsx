@@ -1,9 +1,7 @@
 import React, { FC } from 'react';
-import { ICharacterCard } from '../types/types';
-
-interface CharactersListProps {
-  characters: ICharacterCard[];
-}
+import { useNavigate } from 'react-router-dom';
+import {observer} from 'mobx-react-lite'
+import characters from '../store/characters';
 
 const statusCheck = (status: string) => {
   if (status === 'Alive') {
@@ -17,12 +15,13 @@ const statusCheck = (status: string) => {
   return 'grey'
 }
 
-const CharactersList: FC<CharactersListProps> = ({characters}) => {
+const CharactersList: FC = () => {
+  const navigate = useNavigate();
  
   return (
     <ul className='characters__list'>
-      {characters.map(character => 
-        <li key={character.id} className='character-card'>
+      {characters.characters.map(character => 
+        <li onClick={() => navigate('/character/' + character.id)} key={character.id} className='character-card'>
           <img 
           className='character-card__image' 
           src={character.image} 
@@ -40,7 +39,7 @@ const CharactersList: FC<CharactersListProps> = ({characters}) => {
           </p>
           <p className='character-card__status-wrapper'>
             <span>Status:</span>
-            <span style={{color: `${statusCheck(character.status)}`}}>{character.status}</span>          
+            <span style={{color: `${statusCheck(character.status)}`}}>{character.status}</span>
           </p>
         </li>
       )}
@@ -48,4 +47,4 @@ const CharactersList: FC<CharactersListProps> = ({characters}) => {
   )
 }
 
-export default CharactersList;
+export default observer(CharactersList);

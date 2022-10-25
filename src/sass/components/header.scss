@@ -40,22 +40,22 @@
   @media (min-width: 1200px) {
     width: 40%;
   }
+}
 
   // Кнопки навигации в меню
 
-  button {  
-    background-color: $white;
-    border: none;
-    font-family: 'Karla', sans-serif;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 28px;
-    margin: 20px auto;
+.main-header__link {  
+  background-color: $white;
+  border: none;
+  font-family: 'Karla', sans-serif;    
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 20px auto;
 
-    &:hover {
-      text-decoration: underline;
-      color: green;
-    }
+  &:hover {
+    text-decoration: underline;
+    color: green;
   }
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
 import MainHeader from '../components/UI/MainHeader';
+import {observer} from 'mobx-react-lite'
 
-const CharacterPage = () => {
+const CharacterPage = observer(() => {
   return (
     <>
     <MainHeader />
@@ -53,6 +54,6 @@ const CharacterPage = () => {
     <footer className='main-footer'></footer>
     </>
   )
-}
+})
 
 export default CharacterPage;
