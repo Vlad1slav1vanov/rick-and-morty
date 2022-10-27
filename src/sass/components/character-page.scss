@@ -1,0 +1,83 @@
+// Страница одного персонажа
+
+.characterPage__button-back {
+  font-family: 'Karla', sans-serif;
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  background-color: inherit;
+  width: 30%;
+  align-self: flex-start;
+  background-image: url('../../images/arrow_back_24px.svg');
+  background-repeat: no-repeat;
+  background-position: left center;
+  margin: 15px 0 30px 0;
+}
+
+.characterPage__image {
+  width: 80%;
+  margin-bottom: 20px;
+  border: 3px solid $white;
+}
+
+.characterPage__main-title {
+  margin-bottom: 20px;
+}
+
+.character-informations {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.character-informations__item, .character-episodes__item {
+  position: relative;
+  margin-bottom: 15px;
+
+  &::after {
+    position: absolute;
+    content: '';
+    height: 1px;
+    background-color: #e9e6e3;
+    width: 100%;
+    bottom: -8px;
+    left: 0;
+  }
+}
+
+.character-informations__item-title {
+  margin-bottom: 5px;
+}
+
+.character-informations__main-title, .character-episodes__main-title {
+  font-size: 24px;
+  color: #a39f9b;
+  margin-bottom: 14px;
+}
+
+.character-episodes {
+  width: 100%;
+}
+
+.character-episodes__item {
+  background-image: url('../../images/chevron_right_24px.svg');
+  background-repeat: no-repeat;
+  background-position: 98% center;
+}
+
+.character-episodes__item-title {
+  margin-bottom: 5px;
+}
+
+.character-episodes__item-name {
+  margin-bottom: 5px;
+  font-size: 17px;
+}
+
+.character-episodes__item-date {
+  font-size: 14px;
+  color: $grey
+}
+
+

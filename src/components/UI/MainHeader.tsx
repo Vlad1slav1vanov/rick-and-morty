@@ -6,7 +6,7 @@ const MainHeader = () => {
 
   return (
     <header className='main-header'>
-      <img src='./images/header-logo.png' width='50' height='50' alt=''/>
+      <img src={require('../../images/header-logo.png')} width='50' height='50' alt='Logo'/>
       <nav className={`main-header__main-navigation ${menuState ? 'open' : ''}`}>
         <Link className='main-header__link' to='/characters'>Characters</Link>
         <Link className='main-header__link' to='/locations'>Locations</Link>

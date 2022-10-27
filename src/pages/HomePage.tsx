@@ -8,30 +8,32 @@ import { useInView } from 'react-intersection-observer';
 
 const HomePage: FC = () => {
   const { ref, inView } = useInView();
+
   useEffect(() => {
     if (inView) {
       characters.getCharacters()
     }
   }, [inView])
-  return (
-    <>
-    <MainHeader />
-    <main className='main-wrapper'>
-      <section className='characters'>
-        <h1 className='visually-hidden'>Rick and Morty Characters</h1>
-        <picture>
-          <source media='(min-width: 768px)' srcSet='./images/main-title-desktop.png' width='600' height='200'/>
-          <img className='main-logotype' src='./images/main-title.png' alt='' width='312' height='104'/>
-        </picture>
-        <CharactersList />
-        <div ref={ref}>{inView}</div>
-      </section>
-      
-    </main>
-    <footer className='main-footer'>
 
-    </footer>
-    </>
+  
+  return (
+    <div className='homePage'>
+      <MainHeader />
+      <main className='main-wrapper'>
+        <section className='characters'>
+          <h1 className='visually-hidden'>Rick and Morty Characters</h1>
+          <picture>
+            <source media='(min-width: 768px)' srcSet='./images/main-title-desktop.png' width='600' height='200'/>
+            <img className='main-logotype' src='./images/main-title.png' alt='' width='312' height='104'/>
+          </picture>
+          <CharactersList />
+          <div ref={ref}>{inView}</div>
+        </section> 
+      </main>
+      <footer className='main-footer'>
+
+      </footer>
+    </div>
   )
 }
 

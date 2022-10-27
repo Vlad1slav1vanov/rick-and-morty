@@ -2,26 +2,19 @@ import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {observer} from 'mobx-react-lite'
 import characters from '../store/characters';
-
-const statusCheck = (status: string) => {
-  if (status === 'Alive') {
-    return 'green';
-  }
-
-  if (status === 'Dead') {
-    return 'red';
-  }
-
-  return 'grey'
-}
+import { statusCheck } from '../utils/utils';
 
 const CharactersList: FC = () => {
   const navigate = useNavigate();
  
   return (
     <ul className='characters__list'>
-      {characters.characters.map(character => 
-        <li onClick={() => navigate('/character/' + character.id)} key={character.id} className='character-card'>
+      {characters.charactersList.map(character => 
+        <li 
+        onClick={() => navigate('/characters/' + character.id)}
+        key={character.id} 
+        className='character-card'
+        >
           <img 
           className='character-card__image' 
           src={character.image} 
