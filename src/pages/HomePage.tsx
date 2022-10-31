@@ -1,23 +1,14 @@
-import React, { FC, useEffect } from 'react';
+import { FC } from 'react';
 import MainHeader from '../components/UI/MainHeader';
 import {observer} from 'mobx-react-lite';
-import characters from '../store/characters';
 import CharactersList from '../components/CharactersList';
-import { useInView } from 'react-intersection-observer';
-
+import CharacterFilters from '../components/CharacterFilters';
 
 const HomePage: FC = () => {
-  const { ref, inView } = useInView();
-
-  useEffect(() => {
-    if (inView) {
-      characters.getCharacters()
-    }
-  }, [inView])
 
   
   return (
-    <div className='homePage'>
+    <div className='home-page'>
       <MainHeader />
       <main className='main-wrapper'>
         <section className='characters'>
@@ -26,8 +17,8 @@ const HomePage: FC = () => {
             <source media='(min-width: 768px)' srcSet='./images/main-title-desktop.png' width='600' height='200'/>
             <img className='main-logotype' src='./images/main-title.png' alt='' width='312' height='104'/>
           </picture>
+          <CharacterFilters />
           <CharactersList />
-          <div ref={ref}>{inView}</div>
         </section> 
       </main>
       <footer className='main-footer'>

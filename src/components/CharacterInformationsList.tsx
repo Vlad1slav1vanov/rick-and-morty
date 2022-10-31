@@ -1,8 +1,9 @@
 import { observer } from "mobx-react-lite";
-import React from "react";
+import React, { FC } from "react";
+import { useNavigate } from "react-router-dom";
 import characters from "../store/characters";
 
-const CharacterInformationsList = () => {
+const CharacterInformationsList: FC = () => {
   return (
     <section className='character-informations'>
       <h2 className='character-informations__main-title'>Informations</h2>
@@ -31,13 +32,13 @@ const CharacterInformationsList = () => {
             {characters.singleCharacter.origin.name}
           </p>
         </li>
-        <li className='character-informations__item'>
+        <li style={{display: characters.singleCharacter.type === '' ? 'none' : 'block'}} className='character-informations__item'>
           <h3 className='character-informations__item-title'>Type</h3>
           <p className='character-informations__item-description'>
             {characters.singleCharacter.type}
           </p>
         </li>
-        <li className='character-informations__item'>
+        <li className='character-informations__item active-element'>
           <h3 className='character-informations__item-title'>Location</h3>
           <p className='character-informations__item-description'>
             {characters.singleCharacter.location.name}

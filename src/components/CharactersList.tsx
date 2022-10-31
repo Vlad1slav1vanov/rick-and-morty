@@ -1,11 +1,20 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {observer} from 'mobx-react-lite'
 import characters from '../store/characters';
 import { statusCheck } from '../utils/utils';
+import { useInView } from 'react-intersection-observer';
 
 const CharactersList: FC = () => {
   const navigate = useNavigate();
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      characters.getCharacters()
+      characters.incrementCharactersPage()
+    }
+  }, [inView])
  
   return (
     <ul className='characters__list'>
@@ -13,7 +22,7 @@ const CharactersList: FC = () => {
         <li 
         onClick={() => navigate('/characters/' + character.id)}
         key={character.id} 
-        className='character-card'
+        className='character-card active-element'
         >
           <img 
           className='character-card__image' 
@@ -36,6 +45,7 @@ const CharactersList: FC = () => {
           </p>
         </li>
       )}
+      <div ref={ref}>{inView}</div>
     </ul>
   )
 }
