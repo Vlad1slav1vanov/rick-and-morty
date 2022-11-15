@@ -1,0 +1,31 @@
+// Навигация
+
+.header-navigation {
+  position: absolute;
+  flex-direction: column;
+  top: 103%;
+  left: 0;
+  width: 100%;
+  transition: opacity 1s;
+  border-bottom: solid 2px $black;
+  display: none;
+  background-color: $white;
+
+  &.open {
+    display: flex;
+  }
+
+  @media (min-width: $tablet-width) {
+    position: relative;
+    margin-top: 0;
+    flex-direction: row;
+    width: 60%;
+    display: flex;
+    z-index: 1;
+    border-bottom: none;
+  }
+
+  @media (min-width: 1200px) {
+    width: 40%;
+  }
+}

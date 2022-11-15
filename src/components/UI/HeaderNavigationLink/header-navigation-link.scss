@@ -1,0 +1,42 @@
+
+.header-navigation-link {  
+  background-color: $white;
+  font-family: 'Karla', sans-serif;    
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 0;
+  width: 100%;
+  padding: 15px 0;
+  text-align: center;
+  position: relative;
+
+  @media (min-width: $tablet-width) {
+  border-right: solid 2px black;
+  &:first-child {
+    border-left: solid 2px black;
+  }
+
+  &:hover {
+    background-position: 100% center;
+    background-color: rgba(253, 217,	181, 1);
+    cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+
+  &.active {
+    &::after {
+      position: absolute;
+      content: '';
+      height: 7px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(253, 217,	181, 1);
+    }
+  }
+  }
+}

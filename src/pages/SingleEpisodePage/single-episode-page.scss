@@ -1,0 +1,22 @@
+.single-episode-page {
+  align-items: flex-start;
+}
+
+.single-episode-page__title {
+  margin-bottom: 15px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 40px;
+  }
+}
+
+.single-episode-page__air-date, .single-episode-page__created, .single-episode-page__episode {
+  font-size: 18px;
+  margin-bottom: 15px;
+  display: flex;
+  gap: 10px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 24px;
+  }
+}

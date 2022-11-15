@@ -1,0 +1,43 @@
+.single-episode-characters {
+  width: 100%;
+}
+
+.single-episode-characters__title {
+  color: $grey;
+  margin-bottom: 15px;
+}
+
+.single-episode-characters__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  @media (min-width: $tablet-width){
+    display: grid ;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.episode-character {
+  display: flex;
+  align-items: center;
+  gap: 20%;
+  border: 1px solid $grey;
+  padding: 10px;
+
+  background-image: url('../../../images/chevron-right.svg');
+  background-repeat: no-repeat;
+  background-position: 98% center;
+}
+
+.episode-character__image {
+  width: 100px;
+  border-radius: 50%;
+  border: solid 3px $black;
+}
+
+.episode-character__name {
+  @media (min-width: $tablet-width) {
+    font-size: 22px;
+  }
+}

@@ -1,0 +1,20 @@
+.character-filters {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+  margin-bottom: 15px;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+  }
+}
+
+.character-filters__selects-wrapper {
+  display: flex;
+  gap: 10px;
+
+  @media (min-width: $tablet-width) {
+    width: 45%;
+  }
+}

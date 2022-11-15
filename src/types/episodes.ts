@@ -17,5 +17,5 @@ export interface IResultEpisode {
 
 export interface IEpisodes {
   info: IInfoEpisodes;
-  results: IResultEpisode;
+  results: IResultEpisode[];
 }
