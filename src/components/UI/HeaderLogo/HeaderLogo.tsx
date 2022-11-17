@@ -6,7 +6,7 @@ const HeaderLogo: FC = () => {
   return (
     <div className='header-logo__wrapper active-element'>
       <Link to='/'>
-        <img src='./images/header-logo.png' width='50' height='50' alt='Logo'/>
+        <img src={require('../../../images/header-logo.png')} width='50' height='50' alt='Logo'/>
       </Link>
     </div>
   )

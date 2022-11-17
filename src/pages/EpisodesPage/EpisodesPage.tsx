@@ -1,6 +1,8 @@
 import { observer } from "mobx-react-lite";
 import React, { FC } from "react";
+import EpisodesFilters from "../../components/Episodes/EpisodesFilters/EpisodesFilters";
 import EpisodesList from "../../components/Episodes/EpisodesList/EpisodesList";
+import Footer from "../../components/UI/Footer/Footer";
 import Header from "../../components/UI/Header/Header";
 import Loading from "../../components/UI/Loading/Loading";
 import MainLogo from "../../components/UI/MainLogo/MainLogo";
@@ -28,19 +30,16 @@ const EpisodesPage: FC = () => {
 }
 
   return (
-    <div>
+    <div className='page-wrapper'>
       <Header />
+      {EpisodesListStore.isLoading && <Loading/>}
       <main className='main-wrapper episodes-page'>
         <MainLogo props={logoParams}/>
+        <EpisodesFilters />
         <SearchQuantity quantity={EpisodesListStore.episodesQuantity} searchItems='episodes'/>
-        {EpisodesListStore.isLoading
-        ?
-        <Loading />
-        :
-        <></>
-        }
         <EpisodesList />
       </main>
+      <Footer />
     </div>
   )
 }

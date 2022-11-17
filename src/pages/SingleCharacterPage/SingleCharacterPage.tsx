@@ -8,6 +8,7 @@ import CharacterInformationsList from "../../components/Characters/CharacterInfo
 import { statusCheck } from "../../utils/utils";
 import ButtonBack from "../../components/UI/ButtonBack/ButtonBack";
 import Loading from "../../components/UI/Loading/Loading";
+import Footer from "../../components/UI/Footer/Footer";
 
 const SingleCharacterPage: FC = () => {
   const characterId = Number(useParams().id);
@@ -17,13 +18,11 @@ const SingleCharacterPage: FC = () => {
   }, [])
 
   return (
-    <div>
+    <div className='page-wrapper'>
       <MainHeader />
+      {singleCharacter.isLoading && <Loading/>}
       <main className='main-wrapper'>
         <ButtonBack to='/characters'/>
-          {singleCharacter.isLoading ?
-          <Loading />
-          :
           <div style={{width: '100%'}}>
             <div className='single-character-page__image-wrapper'>  
               <img 
@@ -39,8 +38,8 @@ const SingleCharacterPage: FC = () => {
               <CharacterEpisodesList />  
             </div>
           </div>
-        }
-      </main>  
+      </main> 
+      <Footer /> 
     </div>
   )
 }

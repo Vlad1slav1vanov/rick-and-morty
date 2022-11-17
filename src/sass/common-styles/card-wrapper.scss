@@ -1,0 +1,51 @@
+.card-wrapper {
+  border: 1px solid grey;
+  border-radius: 15px;
+  overflow: hidden;
+  padding: 15px;
+  display: flex;
+  gap: 15px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  &:hover {
+    outline: 2px solid $black;
+  }
+
+  &:focus {
+    outline: 2px solid $black;
+  }
+
+  @media (min-width: 500px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  @media (min-width: $tablet-width) {
+    flex-direction: column;
+  }
+
+  h2 {
+    text-align: center;
+  }
+
+  img {
+    border-radius: 50%;
+    border: 4px solid $black;
+    outline: 4px solid $white;
+    width: 50%;
+
+    @media (min-width: 500px) {
+      width: 20%;
+    }
+
+    @media (min-width: $tablet-width) {
+      width: 60%
+    }
+  }
+
+  p {
+    text-align: center;
+  }
+}

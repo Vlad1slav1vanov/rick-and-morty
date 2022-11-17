@@ -1,0 +1,88 @@
+.home-page__title {
+  margin-top: 15px;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 15px;
+  font-family: 'Karla', sans-serif;
+  color: black;
+
+  @media (min-width: $tablet-width) {
+    margin-top: 0;
+    font-size: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+.home-page__description {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 15px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 20px;
+    margin-bottom: 30px;
+    text-align: left;
+    width: 70%;
+  }
+}
+
+.home-page__link-description {
+  &:hover {
+    color: $green;
+  }
+}
+
+.home-page__navigation {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+
+  @media (min-width: $tablet-width) {
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-bottom: 25px;
+    gap: 25px;
+  }
+}
+
+.navigation-card {
+  padding: 15px;
+  border: solid 2px $black;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border: 2px solid $black;
+  gap: 15px;
+  height: 200px;
+  width: 200px;
+  font-size: 20px;
+
+
+  @media (min-width: $tablet-width) {
+    justify-content: flex-start;
+    width: 100%;
+    font-size: 30px;
+    height: 100%;
+    padding: 25px;
+  }
+}
+
+.navigation-card__title {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 25px;
+
+  @media (min-width: $tablet-width) {
+    font-size: 40px;
+  }
+}
+
+.navigation-card__description {
+  width: 100%;
+  text-align: center;
+}

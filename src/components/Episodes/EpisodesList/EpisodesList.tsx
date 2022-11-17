@@ -24,20 +24,20 @@ const EpisodesList: FC = () => {
   }
 
   return (
-    <ul className='episodes-list'>
+    <ul className='cards-list-wrapper'>
       {episodesListStore.errorMessage 
       ?
       <ErrorMessage message={episodesListStore.errorMessage}/>
       : 
         episodesListStore.episodesList.map(episode => 
               <li 
-                className='episodes-list__item episode-card active-element' 
+                className='card-wrapper active-element' 
                 key={episode.id}
                 onClick={() => navigate('/episodes/' + episode.id)}
               >
-                <h2 className='episode-card__title'>{episode.name}</h2>
-                <p className='episode-card__air-date'>{episode.air_date}</p>
-                <p className='episode-card__episode'>{checkSeason(episode.episode)}</p>
+                <h2>{episode.name}</h2>
+                <p>{episode.air_date}</p>
+                <p>{checkSeason(episode.episode)}</p>
               </li>
               )}
         <div className={`viewer ${episodesListStore.errorMessage ? 'viewer--not-active' : ''}`} ref={ref}>{inView}</div>

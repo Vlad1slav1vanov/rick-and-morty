@@ -1,0 +1,32 @@
+.main-footer {
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+  border-bottom: 2px solid $black;
+  border-top: 2px solid $black;
+  align-items: center;
+  background-color: $green;
+  flex-direction: column;
+  margin-top: auto;
+
+  @media (min-width: $tablet-width) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+.main-footer__description {
+  font-size: 20px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  font-family: 'Karla', sans-serif;
+  text-transform: uppercase;
+
+  @media (min-width: $tablet-width) {
+    font-size: 30px;
+    width: 40%;
+    text-align: left;
+  }
+}

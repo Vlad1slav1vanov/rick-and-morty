@@ -49,7 +49,9 @@ class SingleEpisode {
     }
 
     catch (error) {
-      this.errorMessage = 'Episode not found'
+      runInAction(() => {
+        this.errorMessage = 'Episode not found'
+      })
     }
 
     finally {

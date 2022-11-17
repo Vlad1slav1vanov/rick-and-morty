@@ -1,9 +1,10 @@
 import { observer } from "mobx-react-lite";
 import React, { FC, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import SingleEpisodeCharactersList from "../../components/Episodes/SingleEpisodeCharactersList/SingleEpisodeCharactersList";
+import SinglePageCharacters from "../../components/SinglePageCharacters/SinglePageCharacters";
 import ButtonBack from "../../components/UI/ButtonBack/ButtonBack";
 import ErrorMessage from "../../components/UI/ErrorMessage/ErrorMessage";
+import Footer from "../../components/UI/Footer/Footer";
 import Header from "../../components/UI/Header/Header";
 import Loading from "../../components/UI/Loading/Loading";
 import SingleEpisodeStore from "../../store/SingleEpisodeStore/SingleEpisodeStore";
@@ -16,13 +17,10 @@ const SingleEpisodePage: FC = () => {
   }, [])
   
   return (
-    <div>
+    <div className='page-wrapper'>
       <Header />
-      {SingleEpisodeStore.isLoading
-      ?
-      <Loading />
-      :
-      SingleEpisodeStore.errorMessage 
+      {SingleEpisodeStore.isLoading && <Loading />}
+      {SingleEpisodeStore.errorMessage 
       ?
       <ErrorMessage message={SingleEpisodeStore.errorMessage}/>
       :
@@ -33,9 +31,9 @@ const SingleEpisodePage: FC = () => {
           <span>Air Date:</span>
           <span>{SingleEpisodeStore.singleEpisode.air_date}</span>
         </p>
-        <SingleEpisodeCharactersList />
-      </main>
-      }
+        <SinglePageCharacters title="Cast:" characters={SingleEpisodeStore.singleEpisodeCharacters} />
+      </main>}
+      <Footer />
     </div>
   )
 }

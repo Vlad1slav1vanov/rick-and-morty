@@ -17,16 +17,16 @@ const LocationsList: FC = () => {
   }, [inView])
   
   return (
-    <ul className='locations-list'>
+    <ul className='cards-list-wrapper'>
       {locations.errorMessage 
       ?
       <ErrorMessage message={locations.errorMessage}/>
       :       
       locations.locationsList.map(location =>
-        <li className='locations-list__item location-card active-element' key={location.id} onClick={(evt: React.MouseEvent<HTMLLIElement>) => navigate(`/locations/${location.id}`)}>
-          <h2 className='location-card__title'>{location.name}</h2>
-          <p className='location-card__type'>{location.type}</p>
-          <p className='location-card__dimention'>
+        <li className='card-wrapper active-element' key={location.id} onClick={(evt: React.MouseEvent<HTMLLIElement>) => navigate(`/locations/${location.id}`)}>
+          <h2>{location.name}</h2>
+          <p>{location.type}</p>
+          <p>
             {location.dimension}
           </p>
         </li>

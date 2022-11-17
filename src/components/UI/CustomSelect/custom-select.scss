@@ -13,7 +13,7 @@
   }
 
   &:focus {
-    background-color: rgba(253, 217,	181, 1);
+    background-color: $blue;
     border-color: $black;
     outline: 2px solid $black;
   }

@@ -61,7 +61,9 @@ class SingleCharacterStore {
     }
 
     catch (error) {
-      this.errorMessage = 'Character not found'
+      runInAction(() => {
+        this.errorMessage = 'Character not found'
+      })
     }
 
     finally {

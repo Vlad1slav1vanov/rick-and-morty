@@ -1,13 +1,18 @@
-.single-episode-characters {
+.single-page-characters {
   width: 100%;
+  margin-bottom: 15px;
+
+  @media (min-width: $tablet-width) {
+    margin-bottom: 25px;
+  }
 }
 
-.single-episode-characters__title {
+.single-page-characters__title {
   color: $grey;
   margin-bottom: 15px;
 }
 
-.single-episode-characters__list {
+.single-page-characters__list {
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -18,25 +23,25 @@
   }
 }
 
-.episode-character {
+.single-page-characters__item {
   display: flex;
   align-items: center;
   gap: 20%;
   border: 1px solid $grey;
   padding: 10px;
 
-  background-image: url('../../../images/chevron-right.svg');
+  background-image: url('../../images/chevron-right.svg');
   background-repeat: no-repeat;
   background-position: 98% center;
 }
 
-.episode-character__image {
+.single-page-characters__image {
   width: 100px;
   border-radius: 50%;
   border: solid 3px $black;
 }
 
-.episode-character__name {
+.single-page-characters__name {
   @media (min-width: $tablet-width) {
     font-size: 22px;
   }

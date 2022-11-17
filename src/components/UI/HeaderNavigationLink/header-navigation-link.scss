@@ -1,6 +1,6 @@
 
 .header-navigation-link {  
-  background-color: $white;
+  background-color: inherit;
   font-family: 'Karla', sans-serif;    
   font-weight: 700;
   font-size: 24px;
@@ -19,7 +19,7 @@
 
   &:hover {
     background-position: 100% center;
-    background-color: rgba(253, 217,	181, 1);
+    background-color: $blue;
     cursor: pointer;
   }
 
@@ -35,7 +35,7 @@
       width: 100%;
       bottom: 0;
       left: 0;
-      background-color: rgba(253, 217,	181, 1);
+      background-color: $black;
     }
   }
   }

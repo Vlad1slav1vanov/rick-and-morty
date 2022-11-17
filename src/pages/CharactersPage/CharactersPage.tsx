@@ -7,6 +7,7 @@ import Header from '../../components/UI/Header/Header';
 import SearchQuantity from '../../components/UI/SearchQuantity/SearchQuantity';
 import characters from '../../store/CharactersListStore/CharactersListStore'
 import Loading from '../../components/UI/Loading/Loading';
+import Footer from '../../components/UI/Footer/Footer';
 
 const CharactersPage: FC = () => {
   const logoParams = {
@@ -29,20 +30,16 @@ const CharactersPage: FC = () => {
   }
 
   return (
-    <div>
-      <Header/>
+    <div className='page-wrapper'>
+      <Header />
+      {characters.isLoading && <Loading/>}
       <main className='main-wrapper'>
         <MainLogo props={logoParams}/>
         <CharacterFilters />
         <SearchQuantity quantity={characters.charactersQuantity} searchItems={'characters'} />
-        {characters.isLoading
-        ?
-        <Loading />
-        :
-        <></>      
-        }
-        <CharactersList />
+        <CharactersList />   
       </main>
+      <Footer />
     </div>
   )
 }

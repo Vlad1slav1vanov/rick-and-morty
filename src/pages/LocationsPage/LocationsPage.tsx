@@ -1,7 +1,10 @@
 import { observer } from "mobx-react-lite";
 import React, { FC } from "react";
+import LocationsFilters from "../../components/Locations/LocationsFilters/LocationsFilters";
 import LocationsList from "../../components/Locations/LocationsList/LocationsList";
+import Footer from "../../components/UI/Footer/Footer";
 import Header from "../../components/UI/Header/Header";
+import Loading from "../../components/UI/Loading/Loading";
 import MainLogo from "../../components/UI/MainLogo/MainLogo";
 import SearchQuantity from "../../components/UI/SearchQuantity/SearchQuantity";
 import locations from "../../store/LocationsListStore/LocationsListStore";
@@ -27,13 +30,16 @@ const LocationsPage: FC = () => {
   }
 
   return (
-    <div>
+    <div className='page-wrapper'>
       <Header />
+      {locations.isLoading && <Loading/>}
       <main className='main-wrapper'>
         <MainLogo props={logoParams} />
+        <LocationsFilters />
         <SearchQuantity quantity={locations.locationsQuantity} searchItems='locations'/>
         <LocationsList />
       </main>
+      <Footer />
     </div>
   )
 }

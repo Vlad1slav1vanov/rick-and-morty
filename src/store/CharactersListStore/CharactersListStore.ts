@@ -26,6 +26,8 @@ class CharactersListStore {
   // текущий гендер в фильтре
   gender = '';
   requestGender = '';
+
+  viewerStatus = '';
   // функция прибавляет + 1 страницу к текущей
   incrementCharactersPage() {
     this.page ++;
@@ -36,9 +38,13 @@ class CharactersListStore {
   }
   // функция обнуляет массив персонажей
   resetCharacters() {
-    this.errorMessage = '';
-    this.charactersList = [];
     this.page = 0;
+    this.errorMessage = '';
+    if (this.charactersList.length < 5) {
+      this.page = 1;
+      this.getCharacters()
+    }
+    this.charactersList = [];
   }
 
   debounceResetCharacters = debounce(() => {
@@ -76,10 +82,12 @@ class CharactersListStore {
       })
     }
     catch (error) {
-      if (!this.charactersList.length) {
-        this.errorMessage = 'Nothing Characters was found according to your request. Please change your search parameters';
-        this.charactersQuantity = 0;       
-      }
+      runInAction(() => {
+        if (!this.charactersList.length) {
+          this.errorMessage = 'Nothing Characters was found according to your request. Please change your search parameters';
+          this.charactersQuantity = 0;       
+        }
+      })
     }
     finally {
       runInAction(() => {

@@ -9,7 +9,8 @@
   transition: opacity 1s;
   border-bottom: solid 2px $black;
   display: none;
-  background-color: $white;
+  background-color: inherit;
+
 
   &.open {
     display: flex;

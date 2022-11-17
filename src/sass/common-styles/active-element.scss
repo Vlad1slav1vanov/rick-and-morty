@@ -1,0 +1,11 @@
+.active-element {
+  &:hover {
+    background-position: 100% center;
+    background-color: $blue;
+    cursor: pointer;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+}

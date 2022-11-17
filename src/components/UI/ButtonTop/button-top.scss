@@ -1,0 +1,26 @@
+.button-top {
+  width: 50px;
+  height: 140px;
+  position: fixed;
+  bottom: 65px;
+  right: 10px;
+  border: none;
+  background-color: inherit;
+  z-index: 20;
+
+  svg {
+    fill: $green;
+
+    &:hover {
+      fill: $blue;
+    }
+
+    &:active {
+      opacity: 0.7;
+    }
+  }
+
+  @media (min-width: $tablet-width) {
+    bottom: 90px;
+  }
+}

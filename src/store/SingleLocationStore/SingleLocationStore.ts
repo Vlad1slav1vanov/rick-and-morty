@@ -50,7 +50,9 @@ class SingleLocation {
     }
 
     catch (error) {
-      this.errorMessage = 'Location not found'
+      runInAction(() => {
+        this.errorMessage = 'Location not found'
+      })
     }
 
     finally {
