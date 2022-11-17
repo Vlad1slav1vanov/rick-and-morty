@@ -3,7 +3,6 @@ import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import Footer from "../../components/UI/Footer/Footer";
 import Header from "../../components/UI/Header/Header";
-import HeaderNavigationLink from "../../components/UI/HeaderNavigationLink/HeaderNavigationLink";
 import MainLogo from "../../components/UI/MainLogo/MainLogo";
 
 const HomePage: FC = () => {
@@ -30,7 +29,7 @@ const HomePage: FC = () => {
       <Header />
       <main className="main-wrapper home-page">
         <MainLogo props={logoParams}/>
-        <h1 className="home-page__title">knowlage base</h1>
+        <h1 className="home-page__title">knowledge base</h1>
         <p className="home-page__description">
             Hello! This is a knowledge base of Rick and Morty universe, part-time my pet project. Here you can find characters, episodes in which they participated and their home-locations. As a database, I used the free API
             <a className="home-page__link-description" href="https://rickandmortyapi.com/"> RICKANDMORTYAPI</a>. 
